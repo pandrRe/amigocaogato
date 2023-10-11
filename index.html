@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/src/dog-svgrepo-com.svg" />
+    <link rel="stylesheet" href="/src/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Amigo Cão Gato</title>
+  </head>
+  <body class="bg-orange-200 p-8 md:p-16">
+    <h1 class="font-title text-3xl md:text-8xl text-center text-amber-950 mb-8 md:mb-20">
+      amigo<span class="text-orange-400 block sm:inline">cão</span><span class="text-blue-400 block sm:inline">gato</span>
+    </h1>
+    <section class="flex text-amber-950 justify-center">
+      <div class="text-2xl font-semibold flex flex-col items-center text-center">
+        Ajude com um Pix! Faz toda a diferença.
+        <img src="/src/pix.png" class="rounded-xl mt-4 mb-2 w-full" alt="QR Code de Pix para o lar Amigo Cão Gato"></img>
+        <button id="copy-pix-code" class="bg-orange-600 hover:bg-orange-800 text-white text-base font-bold py-2 px-4 rounded-xl w-full mb-2">Copiar código</button>
+        <span class="text-base font-normal">Silvana dos Santos Nunes</span>  
+      </div>
+    </section>
+
+    <script lang="js">
+      const btn = document.getElementById("copy-pix-code");
+      const code = "00020126360014BR.GOV.BCB.PIX0114+55919983444145204000053039865802BR5907Silvana6005Belem62160512AMIGOCAOGATO63044553";
+      if (btn) {
+        btn.addEventListener("click", () => {
+          navigator.clipboard.writeText(code).then(() => {
+            const original = btn.textContent;
+            btn.textContent = "Copiado!";
+            setTimeout(() => btn.textContent = original, 5_000);
+          })
+        });
+      }
+    </script>
+  </body>
+</html>
